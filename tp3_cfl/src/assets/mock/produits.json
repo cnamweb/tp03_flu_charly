@@ -27,9 +27,9 @@
     { "product": "Ferrari", "price":"100000", "unit":"€", "quantityLeft":"10","description":"A red Ferrari, very fast !", "categories":["car","fast"] },
     { "product": "Lamborghini", "price":"200000", "unit":"€", "quantityLeft":"5","description":"A yellow Lamborghini, very luxurious !", "categories":["car","luxury"] },
     { "product": "Bugatti", "price":"300000", "unit":"€", "quantityLeft":"8","description":"A blue Bugatti, very fast !", "categories":["car","fast"] },
-    { "product": "Someone kidney", "price":"12000", "unit":"€", "quantityLeft":"7","description":"Where did you got that ? ...", "categories":["human","organ", "illigal"] },
-    { "product": "Someone heart", "price":"10000", "unit":"€", "quantityLeft":"2","description":"How can you even... did you kill ? ...", "categories":["human","organ", "illigal"] },
-    { "product": "Someone liver", "price":"5000", "unit":"€", "quantityLeft":"6","description":"You are a monster ! ...", "categories":["human","organ", "illigal"] },
-    { "product": "A young boy", "price":"250", "unit":"€", "quantityLeft":"13","description":"I'm in trouble...", "categories":["human", "illigal", "alive"] },
-    { "product": "A young girl", "price":"200", "unit":"€", "quantityLeft":"11","description":"Mmmmmh, smash ?...", "categories":["human", "illigal", "alive"] }
+    { "product": "Someone kidney", "price":"12000", "unit":"€", "quantityLeft":"7","description":"Where did you got that ? ...", "categories":["human","organ", "illegal"] },
+    { "product": "Someone heart", "price":"10000", "unit":"€", "quantityLeft":"2","description":"How can you even... did you kill ? ...", "categories":["human","organ", "illegal"] },
+    { "product": "Someone liver", "price":"5000", "unit":"€", "quantityLeft":"6","description":"You are a monster ! ...", "categories":["human","organ", "illegal"] },
+    { "product": "A young boy", "price":"250", "unit":"€", "quantityLeft":"13","description":"I'm in trouble...", "categories":["human", "illegal", "alive"] },
+    { "product": "A young girl", "price":"200", "unit":"€", "quantityLeft":"11","description":"Mmmmmh, smash ?...", "categories":["human", "illegal", "alive"] }
 ]

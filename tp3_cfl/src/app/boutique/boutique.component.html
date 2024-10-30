@@ -1,7 +1,19 @@
 <div class="store_container">
+    <div class="filter_container">
+        <div class="search_container">
+            <input type="text" placeholder="Search" [(ngModel)]="search" (input)="filterProducts()">
+        </div>
+        <div class="categories_container">
+            <select [(ngModel)]="selectedCategory" (change)="filterProducts()">
+                <option value="All">All</option>
+                <option *ngFor="let category of differentCategories" [value]="category">{{ category }}</option>
+            </select>
+        </div>
+    </div>
+
     <h1>Charly's cursed products</h1>
     <div class="products_container">
-        <div class="product" *ngFor="let item of produits | async">
+        <div class="product" *ngFor="let item of productsFiltered | async">
             <div class="product_wrapper">
                 <div class="product_title">{{ item.product }} </div>
                 <div class="product_quantity">{{ item.quantityLeft }} left </div>
@@ -9,7 +21,7 @@
             <div class="product_wrapper">
                 <div class="product_price">{{ item.price }} {{ item.unit }} </div>
             </div>
-            
+
             <div class="product_description">{{ item.description }} </div>
             <!-- now the list of the category, going troough the caterogies -->
             <div class="product_categories">
