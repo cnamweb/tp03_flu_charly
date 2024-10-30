@@ -31,5 +31,5 @@
     { "product": "Someone heart", "price":"10000", "unit":"€", "quantityLeft":"2","description":"How can you even... did you kill ? ...", "categories":["human","organ", "illegal"] },
     { "product": "Someone liver", "price":"5000", "unit":"€", "quantityLeft":"6","description":"You are a monster ! ...", "categories":["human","organ", "illegal"] },
     { "product": "A young boy", "price":"250", "unit":"€", "quantityLeft":"13","description":"I'm in trouble...", "categories":["human", "illegal", "alive"] },
-    { "product": "A young girl", "price":"200", "unit":"€", "quantityLeft":"11","description":"Mmmmmh, smash ?...", "categories":["human", "illegal", "alive"] }
+    { "product": "A young girl", "price":"200", "unit":"€", "quantityLeft":"11","description":"Mmmmmh, ok pass...", "categories":["human", "illegal", "alive"] }
 ]

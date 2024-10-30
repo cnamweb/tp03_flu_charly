@@ -1,54 +1,54 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 import { ApiService } from '../api.service';
 import { Produit } from '../models/produit';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FilterComponent } from '../filter/filter.component';
+import { ProductListComponent } from '../product-list/product-list.component';
 
 @Component({
     selector: 'app-boutique',
     standalone: true,
-    imports: [CommonModule, FormsModule],
+    imports: [CommonModule, FilterComponent, ProductListComponent],
     templateUrl: './boutique.component.html',
-    styleUrl: './boutique.component.css'
+    styleUrls: ['./boutique.component.css']
 })
-export class BoutiqueComponent {
-    products: Observable<Produit[]> = new Observable<Produit[]>();
-    productsFiltered: Observable<Produit[]> = new Observable<Produit[]>();
-
+export class BoutiqueComponent implements OnInit {
+    products: Produit[] = [];
+    productsFiltered: Produit[] = [];
     differentCategories: string[] = [];
-    selectedCategory : string = "All";
-
-    search : string = "";
-
     constructor(private apiService: ApiService) { }
 
     ngOnInit() {
-        this.products = this.apiService.getProduits();
-        this.productsFiltered = this.products;
-        this.products.subscribe(products => {
-            products.forEach(product => {
-                product.categories.forEach(category => {
-                    if (!this.differentCategories.includes(category)) {
-                        this.differentCategories.push(category);
-                    }
-                });
-            });
+        this.apiService.getProduits().subscribe((data: Produit[]) => {
+            this.products = data;
+            this.productsFiltered = data;
+            this.differentCategories = this.getDifferentCategories();
+            console.log(this.differentCategories);
         });
     }
 
-    filterProducts() {
-        this.productsFiltered = this.products.pipe(
-            map(products => products.filter(product => {
-                if (this.selectedCategory != "All" && !product.categories.includes(this.selectedCategory)) {
-                    return false;
+    getDifferentCategories() {
+        let categories: string[] = [];
+        this.products.forEach(product => {
+            product.categories.forEach(category => {
+                if (!categories.includes(category)) {
+                    categories.push(category);
                 }
-                if (this.search != "" && !product.product.toLowerCase().includes(this.search.toLowerCase())) {
-                    return false;
-                }
-                
-                return true;
-            }))
-        );
+            });
+        });
+
+        return categories;
+    }
+
+    onFilterChange(filter: { search: string, selectedCategory: string }) {
+        this.productsFiltered = this.products.filter(product => {
+            if (filter.selectedCategory != "All" && !product.categories.includes(filter.selectedCategory)) {
+                return false;
+            }
+            if (filter.search != "" && !product.product.toLowerCase().includes(filter.search.toLowerCase())) {
+                return false;
+            }
+            return true;
+        });
     }
 }

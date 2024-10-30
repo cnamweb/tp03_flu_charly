@@ -9,7 +9,7 @@ import { ApiService } from './api.service';
   imports: [RouterOutlet, BoutiqueComponent],
   providers: [ApiService],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'tp3_cfl';
